@@ -150,10 +150,10 @@
     <aside></aside>
     <footer>
       <div class="footer__wrapper container">
-<a class="metrika-badge" href="https://metrika.yandex.ru/dashboard?id=95965180"
-target="_blank" rel="nofollow" title="Яндекс.Метрика: статистика сайта">
+<a class="metrika-badge" href="/api/logs"
+target="_blank" rel="nofollow" title="Журнал посещений: кто, когда и откуда">
   <span class="mb-icon">Я</span>
-  <span class="mb-text">Метрика<small>статистика</small></span>
+  <span class="mb-text">Метрика<small>журнал визитов</small></span>
 </a>
 
         <div class="footer_left-side">
@@ -161,7 +161,7 @@ target="_blank" rel="nofollow" title="Яндекс.Метрика: статис�
         </div>
         <div class="footer_center-side">
           <p class="footer-text">Авторские права защищены</p>
-          <p class="footer-text" style="font-size: 12px; opacity: 0.7;">Версия сайта: 1.3 · обновлено 23.08.2026</p>
+          <p class="footer-text" style="font-size: 12px; opacity: 0.7;">Версия сайта: 1.4 · обновлено 23.08.2026</p>
         </div>
         <div class="footer_right-side">
           <a class="footer-text1" href="https://sectiodivina.net/">Наш основной сайт</a>
@@ -174,5 +174,19 @@ target="_blank" rel="nofollow" title="Яндекс.Метрика: статис�
     <script src="./JS/timer.js"></script>
     <script src="./JS/modal.js"></script>
     <script src="./JS/opencard.js"></script>
+    <script>
+      try {
+        fetch('/api/track', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({
+            ref: document.referrer,
+            page: location.pathname,
+            screen: screen.width + 'x' + screen.height,
+            lang: navigator.language
+          })
+        });
+      } catch (e) {}
+    </script>
   </body>
 </html>
