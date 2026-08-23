@@ -71,7 +71,15 @@ export default async function handler(req, res) {
 </tr>`).join('');
   const html = `<!DOCTYPE html><html lang="ru"><head><meta charset="UTF-8"><meta name="robots" content="noindex,nofollow"><title>Журнал посещений — Карты Академии</title></head>
 <body style="font-family:Arial,sans-serif;background:#111;color:#ddd;margin:0;padding:24px">
-<h1 style="margin-top:0">Журнал посещений сайта</h1>
+<div style="display:flex;align-items:center;gap:14px;flex-wrap:wrap">
+<h1 style="margin-top:0;margin-bottom:0">Журнал посещений сайта</h1>
+<a href="https://metrika.yandex.ru/dashboard?id=95965180" target="_blank" rel="nofollow"
+   style="display:inline-flex;align-items:center;gap:8px;background:#ffffff;color:#333;border-radius:6px;padding:7px 12px;text-decoration:none;font-size:13px;font-weight:bold;border:1px solid #e0e0e0;transition:box-shadow .2s"
+   onmouseover="this.style.boxShadow='0 0 8px rgba(252,63,29,.5)'" onmouseout="this.style.boxShadow='none'">
+  <span style="display:inline-flex;align-items:center;justify-content:center;width:20px;height:20px;background:#fc3f1d;color:#fff;border-radius:4px;font-size:12px;font-weight:700">Я</span>
+  Личный кабинет Яндекс.Метрики — полная статистика
+</a>
+</div>
 <p style="color:#888">Показано визитов: ${visits.length} · время московское · обновите страницу (F5), чтобы увидеть новые${readError ? `</p><p style="color:#fc3f1d;font-size:12px">Ошибка чтения: ${esc(readError)}` : ''}</p>
 <div style="overflow:auto"><table border="0" cellpadding="0" cellspacing="0" style="border-collapse:collapse;background:#1c1c1c;border-radius:10px;min-width:760px">
 <thead><tr style="background:#333;color:#fff">
